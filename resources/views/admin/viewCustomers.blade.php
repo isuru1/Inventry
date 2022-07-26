@@ -51,13 +51,25 @@
             <a href="{{ URL('customers/add') }}" class="btn bg-navy btn-flat margin" style="float:right">Add Customer</a>            
           </div>
 
+
           <!-- /.box-header -->
           <div class="box-body">
              {!! Form::open(array('url' => 'customers/search', 'method'=>'get', 'class'=> 'form-inline','files'=>'true','id'=>'search-form'))!!}
-            {!! Form::text('query',$string ?? '', array('class'=> 'form-control w-100','placeholder' => 'Search Here...'))!!}
            
-            {!! Form::close() !!}
+             {!! Form::text('query',$string ?? '', array('class'=> 'form-control w-100','placeholder' => 'Search Here...'))!!}           
+           {!! Form::close() !!}
             <br>
+                  
+           {!! Form::open(array('url' => 'customers/status', 'method'=>'get', 'class'=> 'form-inline','files'=>'true','id'=>'search-form'))!!}
+            &nbsp;&nbsp;               
+            <label>Active / In-Active List</label>
+            {!! Form::checkbox('checkstatus', null, array('class'=> 'form-control'))!!}     
+              
+            {!! Form::submit('Search', array('class'=> 'btn bg-navy btn-flat margin'))!!}
+          
+            {!! Form::close() !!}
+            
+
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>                  

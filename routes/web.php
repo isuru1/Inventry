@@ -39,6 +39,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('customers/delete','App\Http\Controllers\backend\CustomersController@delete');
     Route::get('customers/search', 'App\Http\Controllers\backend\CustomersController@Search');
     Route::post('customers/search', 'App\Http\Controllers\backend\CustomersController@Search');
+     Route::get('customers/status', 'App\Http\Controllers\backend\CustomersController@Status');
+    Route::post('customers/status', 'App\Http\Controllers\backend\CustomersController@Status');
 
     //sale order
     Route::get('saleorder', 'App\Http\Controllers\backend\SaleOrderController@SaleOrderList');

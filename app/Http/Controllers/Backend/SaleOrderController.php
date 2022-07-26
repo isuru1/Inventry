@@ -34,11 +34,14 @@ class SaleOrderController extends Controller
     public function postSaleOrders(Request $request)       
     {
         $this->validate($request,[
-            'customer'   => 'required'
+            'customer'   => 'required',
+            'order_date'   => 'required'
+            
             
         ],
         [
-            'customer.required'   => 'Customer Name field is required'
+            'customer.required'   => 'Customer Name field is required',
+            'order_date.required'   => 'Order Date field is required'
             
         ]);
 

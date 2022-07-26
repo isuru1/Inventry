@@ -110,7 +110,7 @@
                                              @foreach ($SaleOrderDetails as $OrderDetail)
                                              <tr>
                                                <td>{{ $OrderDetail->Customers->customer_name }}</td>
-                                               <td>{{ $OrderDetail->OrderDate->order_date }}</td>
+                                               <td>{{ !empty($OrderDetail->OrderDate->order_date) ? $OrderDetail->OrderDate->order_date:'' }}</td>
                                                <td>{{ $OrderDetail->ProductName->product_name }}</td>
                                                <td>{{ $OrderDetail->qty }}</td>                 
                                                <td>{{ $OrderDetail->price }}</td>

@@ -38,11 +38,17 @@ class SaleOrderDetailsController extends Controller
     public function postSaleOrderDetails(Request $request)       
     {
         $this->validate($request,[
-            'order_id'   => 'required'
+            'order_id'   => 'required',
+            'product'     => 'required',
+            'qty'     => 'required',
+            'price'     => 'required'
             
         ],
         [
-            'order_id.required'   => 'Order field is required'
+            'order_id.required'   => 'Order field is required',
+            'product.required'   => 'Product field is required',
+            'qty.required'   => 'Qty field is required',
+            'price.required'   => 'Price field is required'
             
         ]);
 

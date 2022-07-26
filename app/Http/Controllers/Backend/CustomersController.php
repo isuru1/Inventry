@@ -77,7 +77,7 @@ class CustomersController extends Controller
     public function search(Request $request)
     {
     $string = $request->input('query');
-        //dd($string);
+        
         $CustomersList = $this->Customers
             ->Where('tblcustomer.customer_name', 'LIKE', '%'.$string.'%')
             ->orWhere('tblcustomer.email', 'LIKE', '%'.$string.'%')
@@ -85,7 +85,20 @@ class CustomersController extends Controller
             ->orWhere('tblcustomer.status', 'LIKE', '%'.$string.'%')                     
             ->select('tblcustomer.*')
             ->get();
+   return view('admin.viewCustomers', compact('CustomersList','string'));    
+    }
 
-    return view('admin.viewCustomers', compact('CustomersList','string'));    
+    //check status
+    public function status(Request $request)
+    {
+    $Customers = $this->Customers; 
+    $check_value = $request->has('checkstatus');    
+    if($check_value == 1){
+    $CustomersList = $this->Customers->where('status','=',1)->get();
+    }
+    else{
+    $CustomersList = $this->Customers->where('status','=',0)->get();
+    }
+     return view('admin.viewCustomers', compact('CustomersList'));    
     }
 }
